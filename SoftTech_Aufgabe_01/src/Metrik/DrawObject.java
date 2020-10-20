@@ -4,10 +4,13 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
+import java.awt.Font;
+import java.awt.FontMetrics;
 
 public class DrawObject extends Canvas implements MouseListener {
 
     private float _x, _y;
+    private static Font monoFont = new Font("Monospaced", Font.Bold, 20);
 
     public DrawObject() {
         _x = _y = 0;
@@ -25,6 +28,14 @@ public class DrawObject extends Canvas implements MouseListener {
         Ellipse2D ellipse2D = new Ellipse2D.Float(_x, _y, 50, 50); // ell. ist da, aber noch kein mittel zum projizieren
 
         g2d.draw(ellipse2D); // zeichnet ellipse an x und y position mit w weite und h höhe
+
+        g.setFont(monoFont);
+        FontMetrics fm = g.getFontMetrics();
+        w = fm.stringWidth("TEST");
+        h = fm.getAscent();
+        g.drawString("TEST", 120 - (w/2), 120 + (h / 4));
+
+
     }
 
     // besser, in eigener Klasse erzeugen und hier erben lassen, um auf unnötige methoden zu verzichten
