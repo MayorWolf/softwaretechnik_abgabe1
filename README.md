@@ -1,2 +1,1 @@
-# softwaretechnik_abgabe1
- 
+# Softwaretechnik Abgabe 1 - Git & AWT
