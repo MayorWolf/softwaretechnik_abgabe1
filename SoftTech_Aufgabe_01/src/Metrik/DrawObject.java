@@ -10,6 +10,10 @@ public class DrawObject extends Canvas implements MouseListener {
 
     private float _x, _y;
     private int durchm = 50;
+    private int kreis_x_1;
+    private int kreis_y_1;
+    private int kreis_x_2;
+    private int kreis_y_2;
 
     public DrawObject() {
         _x = _y = 0;
@@ -42,6 +46,17 @@ public class DrawObject extends Canvas implements MouseListener {
             g.drawString("Kreis " + (MainWindow.getClicks()+1)+ ":"  + "   X: "+ _x + "   Y: " + _y, 325, 50);
         }
         
+
+        // zeichne eine linie zwischen den beiden mittelpunkten der kreise
+        if(MainWindow.getClicks() == 0) {
+            kreis_x_1 = (int) _x;
+            kreis_y_1 = (int) _y;
+        } else if (MainWindow.getClicks() == 1) {
+            kreis_x_2 = (int) _x;
+            kreis_y_2 = (int) _y;
+            g.setColor(Color.black);
+            g.drawLine(kreis_x_1, kreis_y_1, kreis_x_2, kreis_y_2);
+        }
         
 
     }
@@ -63,6 +78,8 @@ public class DrawObject extends Canvas implements MouseListener {
         
         }
     }
+
+    
 
     @Override
     public void mousePressed(MouseEvent e) {

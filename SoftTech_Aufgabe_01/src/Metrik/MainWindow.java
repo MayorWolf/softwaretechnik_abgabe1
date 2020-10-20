@@ -11,7 +11,7 @@ public class MainWindow extends Frame implements WindowListener {
 
     public MainWindow() {
     	obj = new DrawObject();
-        setTitle("Metrik v1.2");
+        setTitle("Metrik v1.2.2");
         setSize(500,500);
         addWindowListener(this);    // muss auch aufgerüfen werden, sonst passiert nichts
         add(obj);

@@ -72,7 +72,7 @@ public class MainMenuBar extends MenuBar {
 				// öffne das jpanel
 				radi = Integer.parseInt(JOptionPane.showInputDialog(null, "Bitte Radius eingeben: "));
 				temp.changeRadius(radi*2);
-				System.out.println("radius auf " + radi);
+				System.out.println("Radius gesetzt auf " + radi);
 			}
 			
 		}  
