@@ -6,16 +6,24 @@ import java.awt.event.WindowListener;
 
 public class MainWindow extends Frame implements WindowListener {
 	static int clicks = 0;
+	private static DrawObject obj;
 	
 
     public MainWindow() {
-        setTitle("Metrik v1.1.1");
+ v1.1.0
+    	obj = new DrawObject();
+        setTitle("Metrik v1.2");
+  main
         setSize(500,500);
         addWindowListener(this);    // muss auch aufgerüfen werden, sonst passiert nichts
-        add(new DrawObject()); // canvas ist da, zeichenfunktion fehlt aber noch
+        add(obj);
         setMenuBar((new MainMenuBar()));
     }
 
+    public static DrawObject getDrawObject() {
+    	
+    	return obj;
+    }
     public void openWindow() {
         setVisible(true);
     }

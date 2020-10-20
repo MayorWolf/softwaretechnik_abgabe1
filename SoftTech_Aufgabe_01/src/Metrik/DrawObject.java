@@ -17,7 +17,8 @@ public class DrawObject extends Canvas implements MouseListener {
         setBackground(Color.blue);
         addMouseListener(this);
     }
-
+    
+    
     @Override
     public void paint(Graphics g) {
         if(_x == 0 && _y == 0) return;
