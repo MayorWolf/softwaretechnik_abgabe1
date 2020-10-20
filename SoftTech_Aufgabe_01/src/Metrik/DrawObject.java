@@ -4,12 +4,12 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
-
+import java.awt.Font;
 
 public class DrawObject extends Canvas implements MouseListener {
 
     private float _x, _y;
-    
+
     public DrawObject() {
         _x = _y = 0;
 
@@ -27,10 +27,14 @@ public class DrawObject extends Canvas implements MouseListener {
 
         g2d.draw(ellipse2D); // zeichnet ellipse an x und y position mit w weite und h höhe
         
+        // zeige Koordinaten der Kreise an
+        g.setFont(new Font("Monotype", Font.BOLD, 12));
+        g.setColor(Color.white);
         if(MainWindow.getClicks() == 0) {
-            g.drawString("Kreis NR: " + (MainWindow.getClicks()+1)  + " x: "+ _x + " y: " + _y, 100, 100);
+            
+            g.drawString("Kreis " + (MainWindow.getClicks()+1)+ ":"  + "   X: "+ _x +   "   Y: " + _y, 325, 25);
         } else {
-            g.drawString("Kreis NR: " + (MainWindow.getClicks()+1)  + " x: "+ _x + " y: " + _y, 100, 200);
+            g.drawString("Kreis " + (MainWindow.getClicks()+1)+ ":"  + "   X: "+ _x + "   Y: " + _y, 325, 50);
         }
         
         
