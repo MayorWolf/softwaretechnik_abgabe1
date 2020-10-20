@@ -8,7 +8,9 @@ import java.awt.Font;
 
 public class DrawObject extends Canvas implements MouseListener {
 
+
     private float _x, _y;
+    private double _x1, _y1, _x2, _y2;
     private int durchm = 50;
 
     public DrawObject() {
@@ -40,28 +42,44 @@ public class DrawObject extends Canvas implements MouseListener {
             g.drawString("Kreis " + (MainWindow.getClicks()+1)+ ":"  + "   X: "+ _x +   "   Y: " + _y, 325, 25);
         } else {
             g.drawString("Kreis " + (MainWindow.getClicks()+1)+ ":"  + "   X: "+ _x + "   Y: " + _y, 325, 50);
+            g.drawString("Distanz: " + getDistance(), 325, 75);
         }
         
         
 
     }
 
-    // besser, in eigener Klasse erzeugen und hier erben lassen, um auf unnötige methoden zu verzichten
+    private float getDistance() {
+		
+		return (float)Math.sqrt((Math.pow(_x2-_x1,2))+(Math.pow(_y2-_y1,2)));
+	}
+
+	// besser, in eigener Klasse erzeugen und hier erben lassen, um auf unnötige methoden zu verzichten
     @Override
     public void mouseClicked(MouseEvent e) {
 
         Graphics2D g2d = (Graphics2D) getGraphics(); // cast
-    	if(MainWindow.getClicks() > 1) {
+        switch(MainWindow.getClicks()) {
+        case 0:
+            _x1 = _x = e.getX(); // wird implizit gecasted, da x und y int
+            _y1 = _y = e.getY();
+            paint(getGraphics()); // kreis wird erzeugt, canvas repainted, damit kreis auch angezeigt
+    		MainWindow.setClicks(MainWindow.getClicks()+1);            
+        	break;
+        case 1:
+            _x2 = _x = e.getX(); // wird implizit gecasted, da x und y int
+            _y2 = _y = e.getY();
+            paint(getGraphics()); // kreis wird erzeugt, canvas repainted, damit kreis auch angezeigt
+    		MainWindow.setClicks(MainWindow.getClicks()+1);   
+        	break;
+        case 2:
     		MainWindow.setClicks(0);
     		g2d.clearRect(0, 0, 500, 500);
-    	}
-    	else {
-        _x = e.getX(); // wird implizit gecasted, da x und y int
-        _y = e.getY();
-        paint(getGraphics()); // kreis wird erzeugt, canvas repainted, damit kreis auch angezeigt
-		MainWindow.setClicks(MainWindow.getClicks()+1);
-        
+        	break;
+        	
         }
+        
+        
     }
 
     @Override
