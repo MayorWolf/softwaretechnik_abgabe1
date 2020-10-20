@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
+import java.awt.Font;
 
 public class DrawObject extends Canvas implements MouseListener {
 
@@ -25,6 +26,19 @@ public class DrawObject extends Canvas implements MouseListener {
         Ellipse2D ellipse2D = new Ellipse2D.Float(_x, _y, 50, 50); // ell. ist da, aber noch kein mittel zum projizieren
 
         g2d.draw(ellipse2D); // zeichnet ellipse an x und y position mit w weite und h höhe
+        
+        // zeige Koordinaten der Kreise an
+        g.setFont(new Font("Monotype", Font.BOLD, 12));
+        g.setColor(Color.white);
+        if(MainWindow.getClicks() == 0) {
+            
+            g.drawString("Kreis " + (MainWindow.getClicks()+1)+ ":"  + "   X: "+ _x +   "   Y: " + _y, 325, 25);
+        } else {
+            g.drawString("Kreis " + (MainWindow.getClicks()+1)+ ":"  + "   X: "+ _x + "   Y: " + _y, 325, 50);
+        }
+        
+        
+
     }
 
     // besser, in eigener Klasse erzeugen und hier erben lassen, um auf unnötige methoden zu verzichten
