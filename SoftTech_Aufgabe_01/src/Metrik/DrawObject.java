@@ -30,9 +30,19 @@ public class DrawObject extends Canvas implements MouseListener {
     // besser, in eigener Klasse erzeugen und hier erben lassen, um auf unnötige methoden zu verzichten
     @Override
     public void mouseClicked(MouseEvent e) {
+
+        Graphics2D g2d = (Graphics2D) getGraphics(); // cast
+    	if(MainWindow.getClicks() > 1) {
+    		MainWindow.setClicks(0);
+    		g2d.clearRect(0, 0, 500, 500);
+    	}
+    	else {
         _x = e.getX(); // wird implizit gecasted, da x und y int
         _y = e.getY();
         paint(getGraphics()); // kreis wird erzeugt, canvas repainted, damit kreis auch angezeigt
+		MainWindow.setClicks(MainWindow.getClicks()+1);
+        
+        }
     }
 
     @Override

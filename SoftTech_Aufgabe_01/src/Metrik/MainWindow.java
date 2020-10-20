@@ -5,9 +5,11 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class MainWindow extends Frame implements WindowListener {
+	static int clicks = 0;
+	
 
     public MainWindow() {
-        setTitle("Programm für SoftTech");
+        setTitle("Metrik v1.0");
         setSize(500,500);
         addWindowListener(this);    // muss auch aufgerüfen werden, sonst passiert nichts
         add(new DrawObject()); // canvas ist da, zeichenfunktion fehlt aber noch
@@ -16,6 +18,14 @@ public class MainWindow extends Frame implements WindowListener {
 
     public void openWindow() {
         setVisible(true);
+    }
+    
+    public static int getClicks() {
+    	return clicks;
+    }
+    
+    public static void setClicks(int i) {
+    	clicks = i;
     }
 
     @Override
