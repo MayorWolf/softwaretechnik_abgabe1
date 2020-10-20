@@ -3,7 +3,7 @@ package Metrik;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 public class DrawObject extends Canvas implements MouseListener {
 
@@ -22,9 +22,9 @@ public class DrawObject extends Canvas implements MouseListener {
         if(_x == 0 && _y == 0) return;
         Graphics2D g2d = (Graphics2D) g; // cast
         g2d.setStroke(new BasicStroke(2.5F));
-        Ellipse2D ellipse2D = new Ellipse2D.Float(_x, _y, 50, 50); // ell. ist da, aber noch kein mittel zum projizieren
+        Rectangle2D rectangle2D = new Rectangle2D.Float(_x, _y, 50, 50); // ell. ist da, aber noch kein mittel zum projizieren
 
-        g2d.draw(ellipse2D); // zeichnet ellipse an x und y position mit w weite und h höhe
+        g2d.draw(rectangle2D); // zeichnet ellipse an x und y position mit w weite und h höhe
     }
 
     // besser, in eigener Klasse erzeugen und hier erben lassen, um auf unnötige methoden zu verzichten
