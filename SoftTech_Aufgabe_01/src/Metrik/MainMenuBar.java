@@ -23,7 +23,7 @@ public class MainMenuBar extends MenuBar {
     	MenuItem gre = new MenuItem("Farbe: gruen");
 		gre.setActionCommand("green");
 		
-		MenuItem radius = new MenuItem("Radios Amigos");
+		MenuItem radius = new MenuItem("Radius");
 		radius.setActionCommand("radius");
 
         MenuItemListener menuItemListener = new MenuItemListener();
@@ -40,6 +40,7 @@ public class MainMenuBar extends MenuBar {
         _menu.add(yel);
         _menu.add(blu);
 		_menu.add(gre);
+		_menu.addSeparator();
 		_menu.add(radius);
 
         add(_menu);
@@ -70,7 +71,7 @@ public class MainMenuBar extends MenuBar {
 			case "radius":
 				// öffne das jpanel
 				radi = Integer.parseInt(JOptionPane.showInputDialog(null, "Bitte Radius eingeben: "));
-				temp.changeRadius(radi);
+				temp.changeRadius(radi*2);
 				System.out.println("radius auf " + radi);
 			}
 			

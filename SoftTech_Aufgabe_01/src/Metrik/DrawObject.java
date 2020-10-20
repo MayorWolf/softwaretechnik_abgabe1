@@ -9,7 +9,7 @@ import java.awt.Font;
 public class DrawObject extends Canvas implements MouseListener {
 
     private float _x, _y;
-    private int radius = 50;
+    private int durchm = 50;
 
     public DrawObject() {
         _x = _y = 0;
@@ -20,7 +20,7 @@ public class DrawObject extends Canvas implements MouseListener {
     }
     
     public void changeRadius(int i){
-        radius = i;
+        durchm = i;
     }
     
     @Override
@@ -28,7 +28,7 @@ public class DrawObject extends Canvas implements MouseListener {
         if(_x == 0 && _y == 0) return;
         Graphics2D g2d = (Graphics2D) g; // cast
         g2d.setStroke(new BasicStroke(2.5F));
-        Ellipse2D ellipse2D = new Ellipse2D.Float(_x, _y, radius, radius); // ell. ist da, aber noch kein mittel zum projizieren
+        Ellipse2D ellipse2D = new Ellipse2D.Float(_x-durchm/2, _y-durchm/2, durchm, durchm); // ell. ist da, aber noch kein mittel zum projizieren
 
         g2d.draw(ellipse2D); // zeichnet ellipse an x und y position mit w weite und h höhe
         
